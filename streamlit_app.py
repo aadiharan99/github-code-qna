@@ -85,5 +85,5 @@ if len(github_code_url) > 0 and len(query_input) > 0:
 
     if button:
         with st.spinner("Finding answer to your query..."):
-            result = my_crew.kickoff()
+            result = my_crew.kickoff(inputs = {"github_repo" : github_code_url, "query" : query_input})
             st.write(result)
