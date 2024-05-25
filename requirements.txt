@@ -2,3 +2,4 @@ streamlit
 google-generativeai
 crewai
 crewai-tools
+langchain-google-genai
