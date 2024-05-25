@@ -2,7 +2,22 @@ import streamlit as st
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-import google.generativeai as genai
+
+import asyncio
+
+def get_or_create_eventloop():
+    try:
+        return asyncio.get_event_loop()
+    except RuntimeError as ex:
+        if "There is no current event loop in thread" in str(ex):
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            return asyncio.get_event_loop()
+
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
+# import google.generativeai as genai
 from crewai import Agent, Task, Crew
 from crewai_tools import GithubSearchTool
 from langchain_google_genai import ChatGoogleGenerativeAI
