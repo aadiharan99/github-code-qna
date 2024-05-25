@@ -49,7 +49,7 @@ if len(github_code_url) > 0 and len(query_input) > 0:
            "If asked to summarize the entire repository, generate a neatly formatted summary briefly describing each file present in the repository.",
     backstory = "You are a programming subject matter expert with over 30 years of experience as a programmer. "
                 "You have an ability to understand complex code structure from the code stored in a github repository and help solve queries.",
-    tools = [GithubSearchTool(github_code_url)],
+    tools = [GithubSearchTool(github_repo = github_code_url, content_types=["code", "repo", "pr"])],
     llm = llm,
     allow_delegation = False
 )
