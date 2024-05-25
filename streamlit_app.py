@@ -11,10 +11,10 @@ st.set_page_config(page_title="app-qna-code",layout="wide")
 
 st.title("Hello World")
 
-genai.configure(api_key = "AIzaSyBJ5wrK4W_fL9AkzPmzex4esSEIrHfO9OM")
+# genai.configure(api_key = "AIzaSyBJ5wrK4W_fL9AkzPmzex4esSEIrHfO9OM")
 
 llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash", verbose=True, temperature=0.9
+        model="gemini-1.5-flash", verbose=True, temperature=0.9, google_api_key = "AIzaSyBJ5wrK4W_fL9AkzPmzex4esSEIrHfO9OM"
     )
 
 # model = genai.GenerativeModel('gemini-1.5-flash')
